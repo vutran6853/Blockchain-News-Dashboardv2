@@ -1,0 +1,93 @@
+#Turn_Lights_On {
+  background-color: #1c1f21;
+  color: white;
+}
+
+#Turn_Lights_off {
+  background-color: white;
+  color: black;
+}
+
+.cryptoMarketTable {
+  color: black;
+}
+
+.changeprice24Box {
+  animation-name: changeprice24Box;
+  animation-duration: 1s;
+  
+}
+
+.priceBox {
+  border-radius: 5%;
+}
+
+.highPriceBox {
+  color: black;
+  background-color: #f5f5f5;
+  border-radius: 5%;
+  animation-name: priceBoxhighPriceBox;
+  animation-duration: 2s
+}
+
+.lowPriceBox {
+  color: black;
+  border-radius: 5%;
+  background-color: #f5f5f5;
+  animation-name: priceBoxlowPriceBox;
+  animation-duration: 2s
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid green;
+}
+
+.arrow-down {
+  
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid red;
+}
+
+.switchToggleBackgroundColor {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #1c1f21;
+}
+
+@keyframes priceBoxhighPriceBox {
+  from {
+    background-color: green;
+    
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes priceBoxlowPriceBox {
+  from {
+    background-color: red;
+    
+  }
+  to {
+    background-color: #f5f5f5;
+  }
+}
+
+
+@keyframes changeprice24Box {
+  from {
+    background-color: green;
+  }
+  to {
+    background-color: white;
+  }
+}

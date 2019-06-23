@@ -1,0 +1,21 @@
+.navBar-container {
+  background-color: #1c1f21;
+  display: flex;
+  /* width: 50%; */
+  margin: auto;
+  /* margin-left: auto; */
+  height: 2rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-item {
+  /* background-color: red; */
+  width: auto;
+  text-align: center;
+  font-size: 14px;
+}
+
+.navbar-item:hover {
+  background-color: red;
+}

@@ -1,0 +1,27 @@
+.coinListBox {
+  border: 1px solid lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#coinBox {
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0px !important;
+}
+
+.wobble-hor-bottom {
+	animation: wobble-hor-bottom 0.8s both;
+}
+
+#hoverImage {
+  margin: 5px;
+} 
+
+#hoverImage:hover {
+  transform: skew(-10deg);
+  animation-duration: 1s;
+}
