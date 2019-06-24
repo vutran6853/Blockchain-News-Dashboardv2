@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+#logo1 > img {
+  /* border: 2px solid red; */
+  height: 2rem;
+  /* width: 50px; */
+}
+
 .navbar-item {
   /* background-color: red; */
   width: auto;

@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 // Inital Value
-let GET_BITCOININFO = 'GET_BITCOININFO';
-let GET_HISTORYCOIN = 'GET_HISTORYCOIN';
+const GET_BITCOININFO = 'GET_BITCOININFO';
+const GET_HISTORYCOIN = 'GET_HISTORYCOIN';
 
 // Initial State
-let initialState = {
+const initialState = {
   chartsbitcoinData: [],
   historyCoinData: []
 }

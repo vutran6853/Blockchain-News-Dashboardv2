@@ -1,24 +1,25 @@
 .dashboard-container {
   border: 5px solid red;
- /* height: 100%; */
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-areas:  "none none"
+                        "none none"
+                        "banner banner"
+                        "news news";
+  grid-gap: 1px;
 }
-/* .navbarBox {
+
+.dashboard-item-banner {
+  grid-area: banner;
   background-color: #1c1f21;
-} */
-
-.missionSectionBox {
-
-  text-align: center;
   font-family: sans-serif;
-  font-size: 50px;
-  height: 500px;
+  font-size: 16px;
+  height: 100px;
   color: white;
 }
 
-.missionSectionBox, .header, .row {
-  background-color: #1c1f21;
+.dashboard-item-news {
+  grid-area: news
 }
 
 #card {
@@ -60,15 +61,15 @@
 }
 
 .headerBox > p {
-  text-align: center;
-  color: white;
-  font-family: sans-serif;
-  font-size: 20px;
-  background-color: darkslategrey;
+  /* text-align: center; */
+  /* color: white; */
+  /* font-family: sans-serif; */
+  /* font-size: 20px; */
+  /* background-color: darkslategrey; */
 }
 
 .mainBox {
-  background-color: #1c1f21;
+  /* background-color: #1c1f21; */
 }
 
 .currentTrendingBox {
@@ -80,7 +81,7 @@
 
 .topTrendingCryptoBTCBox {
   border: 1px solid  rgb(186, 182, 182);
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
 
 .topTrendingCryptoZECBox {
@@ -100,7 +101,6 @@
 
 .coinapihighPriceBox {
   animation-name: arrowuphighPriceBox;
-
   animation-duration: 10s;
   color: blue;
   background-color: none;
@@ -108,14 +108,11 @@
 
 .coinapilowPriceBox {
   animation-name: arrowdownlowPriceBox;
-
   animation-duration: 10s;
   font-variant-east-asian: jis78;
   color: orange;
   background-color: none;
 }
-
-
 
 .arrow-up {
   display: inline-block;
@@ -140,7 +137,6 @@
 @keyframes arrowuphighPriceBox {
   from {
     border-bottom: 10px solid blue;
-    
   }
   to {
     border-bottom: 10px solid white;
@@ -150,7 +146,6 @@
 @keyframes arrowdownlowPriceBox {
   from {
     border-top: 15px solid orange;
-    
   }
   to {
     border-bottom: 10px solid white;

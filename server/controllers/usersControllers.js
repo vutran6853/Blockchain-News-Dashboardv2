@@ -1,6 +1,6 @@
-let getUsers = (req, res, next) => {
+const getUsers = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.get_users()
   .then((response) => {
@@ -13,9 +13,9 @@ let getUsers = (req, res, next) => {
   });
 }
 
-let getUserByID = (req, res, next) => {
+const getUserByID = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.get_userByID(req.params.id)
   .then((response) => {
@@ -29,9 +29,9 @@ let getUserByID = (req, res, next) => {
 }
 
 
-let getFavlist = (req, res, next) => {
+const getFavlist = (req, res, next) => {
 
-  const dbInstance = req.app.get('db')
+  let dbInstance = req.app.get('db')
 
   dbInstance.get_Favlist(req.params.id)
   .then((response) => {
@@ -43,9 +43,9 @@ let getFavlist = (req, res, next) => {
   });
 }
 
-let editUserInfo = (req, res, next) => {
+const editUserInfo = (req, res, next) => {
 
-  const dbInstance = req.app.get('db')
+  let dbInstance = req.app.get('db')
 
   dbInstance.edit_user([req.query.newname, req.query.id ]) 
   .then((response) => {
@@ -58,9 +58,9 @@ let editUserInfo = (req, res, next) => {
   });
 }
 
-let postUser = (req, res, next) => {
+const postUser = (req, res, next) => {
 
-  const dbInstance = req.app.get('db')
+  let dbInstance = req.app.get('db')
 
   dbInstance.post_user([req.body.firstName, req.body.lastName, req.body.email, req.body.password]) 
   .then((response) => {
@@ -73,9 +73,9 @@ let postUser = (req, res, next) => {
   });
 }
 
-let postlogin = (req, res, next) => {
+const postlogin = (req, res, next) => {
 
-  const dbInstance = req.app.get('db')
+  let dbInstance = req.app.get('db')
 
   dbInstance.post_login([req.query.params.email]) 
   .then((response) => {

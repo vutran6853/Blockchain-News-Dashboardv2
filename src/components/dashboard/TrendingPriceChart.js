@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
 
-function CryptoTrendingPrice(props) {
+function TrendingPriceChart(props) {
   let displayCryptoDate = []    // STORE CRYPTODATE DATA
   let displayCrtptoPrice = []   // STORE CRYPTODATE PRICE
 
@@ -46,10 +46,10 @@ function CryptoTrendingPrice(props) {
   };
 
   return (
-    <div className='topTrendingCryptoBTCBox'>
-      <Line data={ data } width="700" id='btcLineGraphBox'/>
+    <div className="topTrendingCryptoBTCBox">
+      <Line data={ data } width="700" id="btcLineGraphBox"/>
     </div>
   )
 }
  
-export default CryptoTrendingPrice;
+export default TrendingPriceChart;

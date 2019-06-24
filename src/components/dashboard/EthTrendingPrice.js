@@ -136,15 +136,15 @@ class EthTrendingPrice extends Component {
     }
 
     return ( 
-      <div  className='displayTrendingCoinBox d-flex flex-column'>
+      <div className='displayTrendingCoinBox d-flex flex-column'>
         <div>
           <span className={ 'coinapi' + this.handlePriceChangeindex0(displayETH) } >{ displayName[0] } $ : { displayETH[0] }</span>
-          <span className={ this.handleIronChange0(displayETH) } ></span>
+          <span className={ this.handleIronChange0(displayETH) }></span>
         </div>
 
         <div>
         <span className={ 'coinapi' + this.handlePriceChangeindex1(displayETH) } >{ displayName[1] } € : { displayETH[1] }</span>
-          <span className={ this.handleIronChange1(displayETH) } ></span>
+          <span className={ this.handleIronChange1(displayETH) }></span>
         </div>
 
         <div>

@@ -137,7 +137,7 @@ class BtcTrendingPrice extends Component {
     }
 
     return ( 
-      <div className='displayTrendingCoinBox d-flex flex-column'>
+      <div className="displayTrendingCoinBox">
         <div>
           <span className={ 'coinapi' + this.handlePriceChangeindex0(displayBTC) } >{ displayName[0] } $ : { displayBTC[0] }</span>
           <span className={ this.handleIronChange0(displayBTC) } ></span>

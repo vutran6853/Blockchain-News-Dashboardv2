@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // Inital Value
-let GET_USER = 'GET_USER';
+const GET_USER = 'GET_USER';
 
 // Initial State
-let initialState = {
+const initialState = {
   userData: []
 }
 

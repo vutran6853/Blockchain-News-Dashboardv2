@@ -1,6 +1,6 @@
-let getCharts = (req, res, next) => {
+const getCharts = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.get_charts()
   .then((response) => {

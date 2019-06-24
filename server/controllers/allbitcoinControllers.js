@@ -1,6 +1,6 @@
-let getBitcoinList = (req, res, next) => {
+const getBitcoinList = (req, res, next) => {
   
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.get_allBitcoinLst()
   .then((response) => {
@@ -12,9 +12,9 @@ let getBitcoinList = (req, res, next) => {
   });
 }
 
-let postBitcoinlistID = (req, res, next) => {
+const postBitcoinlistID = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
   
   //  POST DATA TO DATABASE
   dbInstance.post_BitcoinlistID([req.params.id, req.query.user_id ])
@@ -27,9 +27,9 @@ let postBitcoinlistID = (req, res, next) => {
   });
 }
 
-let deleteFavCoinID = (req, res, next) => {
+const deleteFavCoinID = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.delete_FavCoinID([req.params.coinindex, req.params.userid ])
   .then((response) => {
@@ -41,9 +41,9 @@ let deleteFavCoinID = (req, res, next) => {
   });
 }
 
-let getBitcoinImage = (req, res, next) => {
+const getBitcoinImage = (req, res, next) => {
 
-  const dbInstance = req.app.get('db');
+  let dbInstance = req.app.get('db');
 
   dbInstance.get_allBitcoinImage()
   .then((response) => {
