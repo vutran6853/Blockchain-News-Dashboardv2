@@ -4,24 +4,23 @@ import './dashboard.css';
 function DashBoardNews(props) {
   let displayCryptoNews = props.news.map((value, index) => {
     // console.log(`value[${index}] = `, value);
-    return (    
-        <div key={ index }>
+    return (
+        <div className="news-item" key={ index }>
           <a href={ value.url } target="popup">
-            <img className='cardImg' src={ value.imageurl }></img>
+            <img className="newsimage" src={ value.imageurl } alt={ value.imageurl }></img>
           </a>
           <a href={ value.url } target="popup">
-            <p className='cardTitleBox' >{ value.title }</p>
+            <p>{ value.title }</p>
           </a>
           <p>{ value.body }</p>
-            {/* <CardText className='cardbody'>{ value.body }</CardText> */}
         </div>
     )
   })
 
   return (
-    <div className="mainBox">
-      { displayCryptoNews }
-    </div>
+      <>
+        { displayCryptoNews }
+      </>
   )
 }
 

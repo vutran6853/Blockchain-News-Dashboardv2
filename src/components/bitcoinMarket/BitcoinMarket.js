@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getBitcoinData, getSevenDayInfo } from '../../ducks/bitcoinNewReducer';
 import { getAllCoinData, getBitcoinImageData } from '../../ducks/allBitcoinListReducer';
-import { Table } from 'reactstrap';
+// import { Table } from 'reactstrap';
+import axios from 'axios';
+
 import BitcoinMarketTableNav from './BitcoinMarketTableNav';
 import { Switch } from 'antd'
-import Navbar from '../navbar/Navbar';
+// import Navbar from '../navbar/Navbar';
 import './bitcoinMarket.css';
 
 let lodash = require('lodash');
@@ -21,23 +23,22 @@ class BitcoinMarket extends Component {
       sevenDayBitcoinData: [],
       allbitcoinImageArray: [],
       isHighPriceMap: [],
-      id: 'Turn Lights On',
+      id: "Turn Lights On",
       current: 1
     }
-    this.changeTheme = this.changeTheme.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-   this.timerID = setInterval( () => 
+    setInterval(() => {
       this.props.getBitcoinData()
       .then((response) => {
         this.setState({ allBitcoinPrice: response.value.data.DISPLAY })
-      }), 3000);
-
+      });
+    }, 3000)
+   
     this.props.getBitcoinImageData()
     .then((response) => {
-      this.setState({ allbitcoinImageArray: response.value.data ? response.value.data.map((value, index) => {
+      this.setState({ allbitcoinImageArray: response.value.data ? response.value.data.map((value) => {
         return value.bitcoin_imageurl
        }) : null })
     });
@@ -48,18 +49,13 @@ class BitcoinMarket extends Component {
     if(prevProps != this.props && prevProps.bitcoinNew.bitcoinData.data) {
       let prevPropsData = prevProps.bitcoinNew.bitcoinData.data.RAW;
       let propsData = this.props.bitcoinNew.bitcoinData.data.RAW;
-      let multMapPrevPropsData = lodash.map(prevPropsData)
-      let multMapPropsData = lodash.map(propsData)
-
       let singlePricePrevProps = []
-      multMapPrevPropsData.map((value, index) => {
-        singlePricePrevProps.push(value.USD.PRICE)
-      });
-
       let singlePricePropsData = []
-      multMapPropsData.map((value, index) => {
-        singlePricePropsData.push(value.USD.PRICE)
-      });
+
+      for(let key in prevPropsData) {
+        singlePricePrevProps.push(prevPropsData[key].USD.PRICE)
+        singlePricePropsData.push(propsData[key].USD.PRICE)
+      }
 
       let test1 = []
 
@@ -80,14 +76,14 @@ class BitcoinMarket extends Component {
     }
   }  
 
-  findpicforlistcoin(fromsymbol) {
+  findpicforlistcoin = (fromsymbol) => {
     let { allbitcoinImageArray } = this.state
     let fitlerimage = allbitcoinImageArray.forEach((element, index) => {
       // console.log(element.bitcoin_fullname.match(/\(([^()]+)\)/)['1'])
     })
   }
 
-  handlePriceChange(num) {
+  handlePriceChange = (num) => {
     let { isHighPriceMap } = this.state
     if(isHighPriceMap[num] === true) {
       return 'highPriceBox'
@@ -97,7 +93,7 @@ class BitcoinMarket extends Component {
     return ''
   }
 
-  handleIronChange(num) {
+  handleIronChange = (num) => {
     let { isHighPriceMap } = this.state
     if(isHighPriceMap[num] === true) {
       return 'arrow-up'
@@ -107,11 +103,11 @@ class BitcoinMarket extends Component {
     return ''
   }
 
-  changeTheme(value) {
+  changeTheme = (value) => {
     this.setState({ id: value ? 'Turn_Lights_On' : 'Turn_Lights_off' })
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     this.setState({ current: e.key })
   }
 
@@ -129,6 +125,7 @@ class BitcoinMarket extends Component {
 
   render() {
     let { allBitcoinPrice, allbitcoinImageArray } = this.state
+    // console.log('allbitcoinImageArray = ', allbitcoinImageArray)
     let mapDisplay = lodash.map(allBitcoinPrice)
     let mapImage = lodash.map(allbitcoinImageArray)
     let singleObjectCoinInfo = []             // <- ALL SINGLE OBJECT ARRAY STORE
@@ -139,38 +136,41 @@ class BitcoinMarket extends Component {
     });
 
    let displayCyproList = singleObjectCoinInfo.map((value, index) => {
-      return(
-        <tbody>
-          <tr key={ index }>
+      return (
+        <tbody key={ index }>
+          <tr>
             <td><strong>{ index }</strong></td>
-            <td><img src={ this.state.allbitcoinImageArray[index] } ></img></td>
+            <td><img src={ this.state.allbitcoinImageArray[index] }></img></td>
             <td>{ value.FROMSYMBOL }</td>
             <td>
-              <span className={ 'priceBox ' + this.handlePriceChange(index) }>{ value.PRICE }</span>
-              <span className={ this.handleIronChange(index) } ></span>
+              <span className={ 'priceBox' + this.handlePriceChange(index) }>{ value.PRICE }</span>
+              <span className={ this.handleIronChange(index) }></span>
             </td>
             <td>{ value.HIGH24HOUR }</td>
             <td>{ value.LOWDAY }</td>
             <td>{ value.MKTCAP }</td>
-            <td><span className='changeprice24Box' >{ value.CHANGEPCT24HOUR }%</span></td>
+            <td><span className="changeprice24Box">{ value.CHANGEPCT24HOUR }%</span></td>
           </tr>
         </tbody>
       )
     });
 
     return ( 
-      <div >
-        {/* <Navbar/> */}
-           <Table className='cryptoMarketTable m-0' responsive size="sm" bordered hover id={ this.state.id } onClick={ this.handleClick }   selectedKeys={ [this.state.current] }  >
-              <BitcoinMarketTableNav/>
-                { displayCyproList }
-          </Table>
-          <div className='switchToggleBackgroundColor'>
-              <Switch checked={ this.state.id === 'Turn_Lights_On'}
-                      onChange={ this.changeTheme }
-                      checkedChildren="Turn Lights On"
-                      unCheckedChildren="Turn Lights off"/>
-          </div>
+      <div>
+        <table className="cryptoMarketTable"
+               id={ this.state.id } 
+               onClick={ this.handleClick }   
+               selectedkeys={ [this.state.current] }>
+               <BitcoinMarketTableNav/>
+               { displayCyproList }
+        </table>
+        <div className='switchToggleBackgroundColor'>
+            <Switch checked={ this.state.id === 'Turn_Lights_On'}
+                    onChange={ this.changeTheme }
+                    checkedChildren="Turn Lights On"
+                    unCheckedChildren="Turn Lights off">
+            </Switch>
+        </div>
       </div>
      );
   }

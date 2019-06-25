@@ -13,63 +13,33 @@
   grid-area: banner;
   background-color: #1c1f21;
   font-family: sans-serif;
-  font-size: 16px;
-  height: 100px;
+  height: 10rem;
   color: white;
+  text-align: center;
+  display: grid;
+  align-content: space-around;
+}
+
+.dashboard-item-banner > h3 {
+  font-size: 2rem;
 }
 
 .dashboard-item-news {
-  grid-area: news
+  grid-area: news;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  /* justify-content: space-between; */
 }
 
-#card {
-  border: 1px solid blue;
-  width: 265px;
-  height: 420px;
-  margin: 2px;
-  display: inline-block;
-  background-color: #1c1f21;
+.dashboard-item-news > .news-item {
+  background-color: red;
+  display: grid;
+  justify-items: center;
 }
 
-.card-body {
-  padding: 0px;
-  color: white;
-}
-
-.cardbody {
-  border: 1px solid rgb(77, 77, 64);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 150px;
-  width: 260px;
-  padding: 5px;
-}
-
-.cardTitleBox {
-  border: 2px solid rebeccapurple;
-  height: 100px;
-  overflow: hidden;
-  color:green;
-  padding: 5px;
-}
-
-.cardImg {
-  border: 2px solid red;
-  max-width: 100px;
-  height: 100px;
-  margin-left: 85px;
-}
-
-.headerBox > p {
-  /* text-align: center; */
-  /* color: white; */
-  /* font-family: sans-serif; */
-  /* font-size: 20px; */
-  /* background-color: darkslategrey; */
-}
-
-.mainBox {
-  /* background-color: #1c1f21; */
+.newsimage {
+  width: 20rem;
 }
 
 .currentTrendingBox {

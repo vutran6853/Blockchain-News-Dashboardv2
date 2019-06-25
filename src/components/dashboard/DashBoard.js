@@ -26,7 +26,7 @@ class DashBoard extends Component {
     this.initDataRequest()
 
     axios.get('https://min-api.cryptocompare.com/data/v2/news/?lang=EN')
-    .then((response) => this.setState({ cryptoNews: response.data.Data.splice(0, 8) }))
+    .then((response) => this.setState({ cryptoNews: response.data.Data.splice(0, 9) }))
     .catch((error) => console.log(`Unable to fetch Data at Dashboard. ${ error }`))
   }
 

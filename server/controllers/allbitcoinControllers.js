@@ -42,12 +42,10 @@ const deleteFavCoinID = (req, res, next) => {
 }
 
 const getBitcoinImage = (req, res, next) => {
-
   let dbInstance = req.app.get('db');
 
   dbInstance.get_allBitcoinImage()
   .then((response) => {
-    // console.log(response)
     res.status(200).send(response)
   })
   .catch((error) => {

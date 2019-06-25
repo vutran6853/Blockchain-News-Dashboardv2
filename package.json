@@ -43,5 +43,6 @@
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
     "redux-promise-middleware": "^6.1.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

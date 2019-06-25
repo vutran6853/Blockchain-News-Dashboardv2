@@ -10,6 +10,25 @@
 
 .cryptoMarketTable {
   color: black;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.cryptoMarketTable > tbody,
+.cryptoMarketTable > thead > tr,
+.cryptoMarketTable > tbody > tr {
+  background-color: darkslategray;
+  width: 100%;
+  display: flex;
+  /* align-self: center; */
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+}
+
+.cryptoMarketTable > tbody > tr > td > img {
+  height: 40px;
+  width: 40px;
 }
 
 .changeprice24Box {
