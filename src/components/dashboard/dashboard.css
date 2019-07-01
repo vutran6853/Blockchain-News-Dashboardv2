@@ -1,5 +1,5 @@
 .dashboard-container {
-  border: 5px solid red;
+  /* border: 5px solid red; */
   display: grid;
   grid-template-columns: 90% 10%;
   grid-template-areas:  "none none"
@@ -33,9 +33,10 @@
 }
 
 .dashboard-item-news > .news-item {
-  background-color: red;
+  /* background-color: red; */
   display: grid;
   justify-items: center;
+  border: 1px solid grey;
 }
 
 .newsimage {

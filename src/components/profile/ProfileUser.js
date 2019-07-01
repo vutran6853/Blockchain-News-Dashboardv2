@@ -8,8 +8,8 @@ class ProfileUser extends Component {
     super(props);
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div className='container profileBox'>
         <Link to='/'>
           <Button>Home</Button>

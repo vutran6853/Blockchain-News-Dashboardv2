@@ -6,7 +6,7 @@ import Rain from './image/rain.png';
 import Thunderstorm from './image/cloud_thunderStorm.png';
 import './weather.css';
 
-let lodash = require('lodash');
+// let lodash = require('lodash');
 const WEATHER_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 class Weather extends Component {

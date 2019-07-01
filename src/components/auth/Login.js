@@ -13,8 +13,8 @@ class Login extends Component {
       }
   } 
 
-  submitForm = (e) => {
-    e.preventDefault();
+  submitForm = (event) => {
+    event.preventDefault();
     console.log('hit here')
     if(this.state.email !== '' && this.state.password !== '') {
       console.log(true)

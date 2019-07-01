@@ -1,40 +1,64 @@
-#Turn_Lights_On {
-  background-color: #1c1f21;
-  color: white;
-}
-
-#Turn_Lights_off {
+.container {
   background-color: white;
-  color: black;
+  /* color: black; */
 }
 
 .cryptoMarketTable {
-  color: black;
-  border: 2px solid red;
+  color: white;
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin: auto;
+  color: black;
+
 }
 
-.cryptoMarketTable > tbody,
-.cryptoMarketTable > thead > tr,
-.cryptoMarketTable > tbody > tr {
-  background-color: darkslategray;
+.cryptoMarketTable-item {
+  border: 1px solid grey;
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cryptoMarketTable-item > p {
   width: 100%;
-  display: flex;
-  /* align-self: center; */
-  justify-content: space-between;
-  /* border: 2px solid blue; */
 }
 
-.cryptoMarketTable > tbody > tr > td > img {
-  height: 40px;
-  width: 40px;
+.cryptoMarketTable-item > span {
+  display: flex;
+  align-items: center;
+}
+.cryptoMarketTable-item > span > img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid grey;
+}
+
+.table-header > p {
+  width: 10rem;
 }
 
 .changeprice24Box {
   animation-name: changeprice24Box;
   animation-duration: 1s;
   
+}
+
+#Turn_Lights_On {
+  /* color: #1c1f21; */
+  color: white;
+  background-color: #1c1f21;
+
+}
+
+#Turn_Lights_off {
+  color: black;
+  background-color: white;
+
 }
 
 .priceBox {
@@ -58,15 +82,14 @@
 }
 
 .arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid green;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid green;
 }
 
-.arrow-down {
-  
+.arrow-down {  
   width: 0; 
   height: 0; 
   border-left: 10px solid transparent;
@@ -100,7 +123,6 @@
     background-color: #f5f5f5;
   }
 }
-
 
 @keyframes changeprice24Box {
   from {

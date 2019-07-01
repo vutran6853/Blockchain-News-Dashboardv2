@@ -38,7 +38,7 @@ class UserList extends Component {
     let displayList = this.props.userData.map((value) => {
       return (
           <div key={ value.user_id } className="userList-item">
-            <img src={ value.user_url } ></img>
+            <img src={ value.user_url } alt="user-profile-image" ></img>
             <p>{ value.user_firstname } { value.user_lastname }</p>
             <Link to={ `/${ value.user_id }` }>
               <button>view profile</button>

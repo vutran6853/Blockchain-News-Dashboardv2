@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import './auth.css';
 
 class SignUp extends Component {
@@ -15,8 +15,8 @@ class SignUp extends Component {
     }
   }
 
-  submitForm = (e) => {
-    e.preventDefault();
+  submitForm = (event) => {
+    event.preventDefault();
     console.log('hit here')
   }
 

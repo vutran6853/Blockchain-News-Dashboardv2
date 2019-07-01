@@ -4,8 +4,8 @@ import { getChartsData } from '../../ducks/chartsReducer';
 import { getBitcoinData } from '../../ducks/bitcoinNewReducer';
 import TopCoinChart from './horizontalChart';
 import BitcoinVolume24 from './BitcoinVolume24';
-import { Container} from 'reactstrap';
-import NavBarHeader from '../dashboard/NavBarHeader';
+// import { Container} from 'reactstrap';
+// import NavBarHeader from '../dashboard/NavBarHeader';
 import LineChart from './LineChart';
 import './charts.css'
 
@@ -26,11 +26,11 @@ class Charts extends Component {
     return ( 
       <div className='container-fluid m-0 p-0'>
         {/* <NavBarHeader/> */}
-          <Container>
+          {/* <Container> */}
             <LineChart/>
             <TopCoinChart/>
             <BitcoinVolume24/>
-          </Container>
+          {/* </Container> */}
       </div>
      );
   }

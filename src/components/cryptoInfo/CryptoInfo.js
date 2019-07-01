@@ -22,6 +22,11 @@ class CryptoInfo extends Component {
     .catch((err) => console.log(`Unable to fetch data at getAllCoinData() ${ err }`));
   }
 
+  componentDidUpdate() {
+    this.scrollFunction()
+  }
+
+
   // POST ID TO FAVORITE DB
   postFavCoin = (id) => {
     axios.post(`/api/favorite/${ id }/1`)
@@ -37,46 +42,58 @@ class CryptoInfo extends Component {
     });
   };
 
+  scrollFunction = () => {
+    if (document.body.scrollTop < 500 || document.documentElement.scrollTop < 500) {
+      document.getElementById("myBtn").style.display = "block";
+    } else {
+      document.getElementById("myBtn").style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+
   render() {
     let { allCoinListData } = this.state;
 
     let displayCoinList = allCoinListData.map((value, index) => {
       let content = (
         <div key={ index }>
-          <p><strong>Description: </strong> { value.bitcoin_description }</p>
-          <p><strong>Algorithm: </strong> { value.bitcoin_algorithm }</p>
+          <p><strong>Description:</strong> { value.bitcoin_description }</p>
+          <p><strong>Algorithm:</strong> { value.bitcoin_algorithm }</p>
         </div> 
       )
 
       return (
         <div id="coinBox" key={ value.bitcoin_fullname }>
-            <Card style={ { width: 270, height: 290, padding: 10 } }
-                  cover={ <img alt={ value.bitcoin_fullname }
-                          id='hoverImage'  
-                          src={ value.bitcoin_imageurl } 
-                          style={ { width: 210, height: 190 } }/> }
-            >
-            <p>{ value.bitcoin_fullname }</p>
-            <Button style={ { margin: 3 } } 
-                    type="dashed"
-                    onClick={ () => { this.postFavCoin(index)
-                                      this.openNotification()} }>Add to Fav
-            </Button>
+          <img  alt={ value.bitcoin_fullname }
+                id='hoverImage'
+                src={ value.bitcoin_imageurl }
+                style={ { width: 210, height: 190 } }>
+          </img>
+          <p>{ value.bitcoin_fullname }</p>
+          <button type="dashed"
+                  onClick={ () => { this.postFavCoin(index); this.openNotification() } }>Add to Fav
+          </button>
 
-            <Popover content={ content } title={ value.bitcoin_fullname }>
-              <Button>More Info</Button>
-            </Popover>
-          </Card>
+          <Popover content={ content } title={ value.bitcoin_fullname }>
+            <button>More Info</button>
+          </Popover>
         </div>
       )
     });
 
     return (
         <div className="coinListBox">
+          <button onClick={ this.topFunction } id="myBtn" title="Go to top">TOP</button>
           { displayCoinList }
-          <BackTop></BackTop>
+          {/* <BackTop></BackTop> */}
         </div>
-     );
+    );
   }
 }
 
